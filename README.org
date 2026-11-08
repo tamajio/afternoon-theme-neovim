@@ -31,6 +31,14 @@ The colorscheme includes Org-specific highlight groups for
 [[https://github.com/xheisenbugx/org.nvim][org.nvim]]. Org syntax support is
 provided by that plugin; this colorscheme only defines the colors.
 
+* Requirements
+
+The colorscheme itself has no required plugin dependencies. To use the
+Java/Lua variable declaration and assignment highlights, install
+[[https://github.com/nvim-treesitter/nvim-treesitter][nvim-treesitter]] and its
+=java= and =lua= parsers (for example, with =:TSInstall java= and
+=:TSInstall lua=).
+
 * Code layout
 
 - =colors/afternoon.lua=: Neovim colorscheme entry point.
@@ -40,6 +48,8 @@ provided by that plugin; this colorscheme only defines the colors.
 - =lua/afternoon/highlights/org.lua=: =org.nvim= highlight groups.
 - =lua/afternoon/highlights/treesitter.lua=: Tree-sitter highlight links.
 - =lua/afternoon/terminal.lua=: terminal ANSI colors.
+- =queries/java/= and =queries/lua/=: Tree-sitter variable declaration and
+  assignment captures.
 
 * Credits and license
 

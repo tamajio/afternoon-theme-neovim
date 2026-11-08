@@ -3,6 +3,8 @@
 -- SPDX-License-Identifier: GPL-3.0-or-later
 -- Upstream: https://github.com/ozanvos/emacs-afternoon-theme
 
+local c = require("afternoon.palette")
+
 return {
   ["@comment"] = { link = "Comment" },
   ["@constant"] = { link = "Constant" },
@@ -18,7 +20,12 @@ return {
   ["@keyword"] = { link = "Keyword" },
   ["@operator"] = { link = "Operator" },
   ["@type"] = { link = "Type" },
-  ["@variable"] = { link = "Identifier" },
+  ["@type.builtin"] = { link = "Type" },
+  ["@type.builtin.java"] = { link = "Type" },
+  ["@variable"] = { fg = c.foreground },
+  ["@variable.assignment"] = { fg = c.foreground },
+  ["@variable.definition"] = { fg = c.orange },
+  ["@variable.parameter"] = { fg = c.orange },
   ["@variable.builtin"] = { link = "Builtin" },
   ["@property"] = { link = "Identifier" },
   ["@punctuation"] = { link = "Delimiter" },
