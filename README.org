@@ -51,6 +51,25 @@ Java/Lua variable declaration and assignment highlights, install
 - =queries/java/= and =queries/lua/=: Tree-sitter variable declaration and
   assignment captures.
 
+* Customization
+
+Call =setup= before loading the colorscheme. =palette= overrides shared color
+values; =highlight_groups= overrides individual Neovim highlight groups.
+
+#+begin_src lua
+require("afternoon").setup({
+  palette = {
+    orange = "#ff9e64",
+  },
+  highlight_groups = {
+    Normal = { bg = "#101018" },
+    ["@lsp.type.modifier.java"] = { fg = "#00bfff" },
+  },
+})
+
+vim.cmd.colorscheme("afternoon")
+#+end_src
+
 * Credits and license
 
 The original Emacs theme was created by Ozan Sener. Its color choices credit

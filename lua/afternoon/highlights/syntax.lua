@@ -3,7 +3,7 @@
 -- SPDX-License-Identifier: GPL-3.0-or-later
 -- Upstream: https://github.com/ozanvos/emacs-afternoon-theme
 
-local c = require("afternoon.palette")
+local c = require("afternoon.config").palette
 
 return {
   Comment = { fg = c.comment },
