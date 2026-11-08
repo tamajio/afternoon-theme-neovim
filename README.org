@@ -29,7 +29,7 @@ For example, with lazy.nvim:
 
 The colorscheme includes Org-specific highlight groups for
 [[https://github.com/xheisenbugx/org.nvim][org.nvim]]. Org syntax support is
-provided by that plugin; this colorscheme only defines the colors.
+provided by that plugin; this colorscheme defines the Org and agenda colors.
 
 * Requirements
 
@@ -38,6 +38,27 @@ Java/Lua variable declaration and assignment highlights, install
 [[https://github.com/nvim-treesitter/nvim-treesitter][nvim-treesitter]] and its
 =java= and =lua= parsers (for example, with =:TSInstall java= and
 =:TSInstall lua=).
+
+* Migration status
+
+Status tracks how closely =org.nvim= highlight groups match the Emacs
+=afternoon-theme= faces; it does not indicate complete feature support in
+=org.nvim=.
+
+** Org mode
+
+- [X] Headline levels, TODO/DONE states, priorities, and tags.
+- [X] Timestamps, planning, links, blocks, code, tables, footnotes, and LaTeX.
+- [X] Document title.
+- [ ] Document info and info-keyword colors.
+- [ ] Folded markers and hidden text (=org-ellipsis= / =org-hide=).
+- [ ] Warning faces.
+
+** Org agenda
+
+- [X] Structure header, dates, completed items, and dimmed items.
+- [X] Scheduled items and deadlines.
+- [ ] Column view and column-title colors.
 
 * Code layout
 
