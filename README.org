@@ -1,10 +1,100 @@
-#+title: Neovim Theme
+#+title: Afternoon Theme for Neovim
 
 * Overview
 
-A Lua-based colorscheme for Neovim.
+Afternoon is a dark Neovim colorscheme with a deep charcoal background and
+blue-toned syntax colors. It is a Lua port of
+[[https://github.com/ozanvos/emacs-afternoon-theme][emacs-afternoon-theme]].
 
-* Status
+* Installation
 
-This project is in development. Installation and usage instructions will be
-added once the theme is implemented.
+Add this repository to your Neovim runtime path with your plugin manager, then
+enable the colorscheme:
+
+#+begin_src lua
+vim.cmd.colorscheme("afternoon")
+#+end_src
+
+For example, with lazy.nvim:
+
+#+begin_src lua
+{
+  "tamajio/afternoon-theme-neovim",
+  priority = 1000,
+  config = function()
+    vim.cmd.colorscheme("afternoon")
+  end,
+}
+#+end_src
+
+The colorscheme includes Org-specific highlight groups for
+[[https://github.com/xheisenbugx/org.nvim][org.nvim]]. Org syntax support is
+provided by that plugin; this colorscheme defines the Org and agenda colors.
+
+* Requirements
+
+The colorscheme itself has no required plugin dependencies. To use the
+Java/Lua variable declaration and assignment highlights, install
+[[https://github.com/nvim-treesitter/nvim-treesitter][nvim-treesitter]] and its
+=java= and =lua= parsers (for example, with =:TSInstall java= and
+=:TSInstall lua=).
+
+* Migration status
+
+Status tracks how closely =org.nvim= highlight groups match the Emacs
+=afternoon-theme= faces; it does not indicate complete feature support in
+=org.nvim=.
+
+** Org mode
+
+- [X] Headline levels, TODO/DONE states, priorities, and tags.
+- [X] Timestamps, planning, links, blocks, code, tables, footnotes, and LaTeX.
+- [X] Document title.
+- [ ] Document info and info-keyword colors.
+- [ ] Folded markers and hidden text (=org-ellipsis= / =org-hide=).
+- [ ] Warning faces.
+
+** Org agenda
+
+- [X] Structure header, dates, completed items, and dimmed items.
+- [X] Scheduled items and deadlines.
+- [ ] Column view and column-title colors.
+
+* Code layout
+
+- =colors/afternoon.lua=: Neovim colorscheme entry point.
+- =lua/afternoon/palette.lua=: shared color palette.
+- =lua/afternoon/highlights/base.lua= and =syntax.lua=: editor UI and syntax.
+- =lua/afternoon/highlights/git.lua= and =lsp.lua=: Git and diagnostics/LSP.
+- =lua/afternoon/highlights/org.lua=: =org.nvim= highlight groups.
+- =lua/afternoon/highlights/treesitter.lua=: Tree-sitter highlight links.
+- =lua/afternoon/terminal.lua=: terminal ANSI colors.
+- =queries/java/= and =queries/lua/=: Tree-sitter variable declaration and
+  assignment captures.
+
+* Customization
+
+Call =setup= before loading the colorscheme. =palette= overrides shared color
+values; =highlight_groups= overrides individual Neovim highlight groups.
+
+#+begin_src lua
+require("afternoon").setup({
+  palette = {
+    orange = "#ff9e64",
+  },
+  highlight_groups = {
+    Normal = { bg = "#101018" },
+    ["@lsp.type.modifier.java"] = { fg = "#00bfff" },
+  },
+})
+
+vim.cmd.colorscheme("afternoon")
+#+end_src
+
+* Credits and license
+
+The original Emacs theme was created by Ozan Sener. Its color choices credit
+Chris Kempson and Scott Frazer, and it is based on Steve Purcell's
+=color-theme-sanityinc-tomorrow=. This Neovim port retains the original palette
+and is licensed under the GNU General Public License, version 3 or later.
+See the =LICENSE= file or [[https://www.gnu.org/licenses/gpl-3.0.html][the GNU GPL v3 text]].
