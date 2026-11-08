@@ -1,0 +1,10 @@
+#+title: Neovim Theme
+
+* Overview
+
+A Lua-based colorscheme for Neovim.
+
+* Status
+
+This project is in development. Installation and usage instructions will be
+added once the theme is implemented.
