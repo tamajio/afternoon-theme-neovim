@@ -10,6 +10,7 @@ local modules = {
   "git",
   "lsp",
   "org",
+  "neotree",
   "treesitter",
 }
 
