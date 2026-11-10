@@ -21,7 +21,7 @@ return {
   LineNr = { fg = c.green, bg = c.current_line },
   CursorLineNr = { fg = c.yellow, bg = c.current_line, bold = true },
   SignColumn = { bg = c.current_line },
-  Folded = { fg = c.comment, bg = c.block_background },
+  Folded = { fg = c.comment, bg = c.background },
   FoldColumn = { fg = c.comment, bg = c.current_line },
   WinSeparator = { fg = c.comment },
   StatusLine = { fg = c.foreground, bg = c.current_line, bold = true },
