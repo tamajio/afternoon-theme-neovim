@@ -37,6 +37,8 @@ For example, with lazy.nvim:
 The colorscheme includes Org-specific highlight groups for
 [[https://github.com/xheisenbugx/org.nvim][org.nvim]]. Org syntax support is
 provided by that plugin; this colorscheme defines the Org and agenda colors.
+It also provides Neogit highlights based on the Magit faces in the original
+Emacs theme.
 
 * Requirements
 
@@ -74,6 +76,7 @@ Status tracks how closely =org.nvim= highlight groups match the Emacs
 - =lua/afternoon/highlights/base.lua= and =syntax.lua=: editor UI and syntax.
 - =lua/afternoon/highlights/git.lua= and =lsp.lua=: Git and diagnostics/LSP.
 - =lua/afternoon/highlights/org.lua=: =org.nvim= highlight groups.
+- =lua/afternoon/highlights/neogit.lua=: =Neogit= highlight groups.
 - =lua/afternoon/highlights/neotree.lua=: =neo-tree.nvim= highlight groups.
 - =lua/afternoon/highlights/treesitter.lua=: Tree-sitter highlight links.
 - =lua/afternoon/terminal.lua=: terminal ANSI colors.

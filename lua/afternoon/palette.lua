@@ -12,6 +12,8 @@ return {
   comment = "#969896",
   red = "#d54e53",
   orange = "#daa520",
+  oxblood = "#5a2528",
+  deep_forest_green = "#2f452e",
   yellow = "#e7c547",
   green = "#a2cd5a",
   aqua = "#70c0b1",

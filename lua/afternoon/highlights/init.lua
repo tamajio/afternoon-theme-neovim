@@ -10,15 +10,22 @@ local modules = {
   "git",
   "lsp",
   "org",
+  "neogit",
   "neotree",
   "treesitter",
 }
 
 function M.apply(overrides)
   local groups = {}
+  local setups = {}
 
   for _, name in ipairs(modules) do
-    local highlights = require("afternoon.highlights." .. name)
+    local module = require("afternoon.highlights." .. name)
+    local highlights = module.highlights or module
+    if module.setup then
+      table.insert(setups, module.setup)
+    end
+
     for group, settings in pairs(highlights) do
       groups[group] = settings
     end
@@ -34,6 +41,10 @@ function M.apply(overrides)
 
   for group, settings in pairs(groups) do
     vim.api.nvim_set_hl(0, group, settings)
+  end
+
+  for _, setup in ipairs(setups) do
+    setup()
   end
 end
 
