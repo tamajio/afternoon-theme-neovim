@@ -28,7 +28,7 @@ return {
   OrgTimestampInactive = { fg = c.comment },
   OrgPlanning = { fg = c.orange },
   OrgClockDuration = { fg = c.yellow },
-  OrgDrawer = { fg = c.orange },
+  OrgDrawer = { fg = c.comment },
   OrgPropertyKey = { fg = c.yellow },
   OrgPropertyValue = { fg = c.foreground },
   OrgKeyword = { fg = c.comment },
