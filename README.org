@@ -38,7 +38,12 @@ The colorscheme includes Org-specific highlight groups for
 [[https://github.com/xheisenbugx/org.nvim][org.nvim]]. Org syntax support is
 provided by that plugin; this colorscheme defines the Org and agenda colors.
 It also provides Neogit highlights based on the Magit faces in the original
-Emacs theme.
+Emacs theme. The Emacs Flycheck error and warning colors are carried by
+Neovim's diagnostic highlight groups, which Trouble.nvim reuses for diagnostic
+severity markers. The Trouble.nvim window uses Afternoon's base background
+color, with orange folder icons and names, purple filenames, and sky-blue
+diagnostic codes. Its hierarchy connector lines are gray against the same
+background.
 
 * Requirements
 

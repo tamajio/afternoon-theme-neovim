@@ -12,6 +12,7 @@ local modules = {
   "org",
   "neogit",
   "neotree",
+  "trouble",
   "treesitter",
 }
 
