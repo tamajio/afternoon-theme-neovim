@@ -16,6 +16,7 @@ return {
   deep_forest_green = "#2f452e",
   yellow = "#e7c547",
   green = "#a2cd5a",
+  soft_mint = "#86cbb1",
   aqua = "#70c0b1",
   blue = "#00bfff",
   purple = "#c397d8",
