@@ -34,17 +34,6 @@ For example, with lazy.nvim:
 }
 #+end_src
 
-The colorscheme includes Org-specific highlight groups for
-[[https://github.com/xheisenbugx/org.nvim][org.nvim]]. Org syntax support is
-provided by that plugin; this colorscheme defines the Org and agenda colors.
-It also provides Neogit highlights based on the Magit faces in the original
-Emacs theme. The Emacs Flycheck error and warning colors are carried by
-Neovim's diagnostic highlight groups, which Trouble.nvim reuses for diagnostic
-severity markers. The Trouble.nvim window uses Afternoon's base background
-color, with orange folder icons and names, purple filenames, and sky-blue
-diagnostic codes. Its hierarchy connector lines are gray against the same
-background.
-
 * Requirements
 
 The colorscheme itself has no required plugin dependencies. To use the
@@ -55,11 +44,13 @@ Java/Lua variable declaration and assignment highlights, install
 
 * Migration status
 
-Status tracks how closely =org.nvim= highlight groups match the Emacs
-=afternoon-theme= faces; it does not indicate complete feature support in
-=org.nvim=.
+This checklist tracks highlight coverage implemented by this colorscheme; it
+does not indicate complete feature support in the related plugins.
 
 ** Org mode
+
+=org.nvim= provides Org syntax support; this colorscheme supplies the Org mode
+and agenda highlight groups.
 
 - [X] Headline levels, TODO/DONE states, priorities, and tags.
 - [X] Timestamps, planning, links, blocks, code, tables, footnotes, and LaTeX.
@@ -74,6 +65,25 @@ Status tracks how closely =org.nvim= highlight groups match the Emacs
 - [X] Scheduled items and deadlines.
 - [ ] Column view and column-title colors.
 
+** Languages and editor highlights
+
+- [X] Core Neovim UI and standard syntax highlight groups.
+- [X] Tree-sitter links for common syntax and markup captures.
+- [X] Java and Lua Tree-sitter captures for variable declarations and assignments.
+- [X] LSP diagnostic severity colors and Java-specific semantic-token mappings.
+- [ ] Custom Tree-sitter declaration and assignment captures for languages beyond Java and Lua.
+- [ ] Language-specific LSP semantic-token mappings beyond Java.
+
+** Git, plugins, and terminal
+
+- [X] Git diff and GitSigns highlights.
+- [X] Neogit highlights based on the original theme's Magit faces, including
+  commit bracket accents.
+- [X] =neo-tree.nvim= file and directory highlights.
+- [X] Neovim diagnostic groups carry the Emacs Flycheck error and warning colors; =Trouble.nvim= reuses them for diagnostic severity markers.
+- [X] =Trouble.nvim= uses the base background, orange folder icons and names, purple filenames, sky-blue diagnostic codes, and gray hierarchy lines.
+- [X] Terminal ANSI colors.
+
 * Code layout
 
 - =colors/afternoon.lua=: Neovim colorscheme entry point.
@@ -83,6 +93,7 @@ Status tracks how closely =org.nvim= highlight groups match the Emacs
 - =lua/afternoon/highlights/org.lua=: =org.nvim= highlight groups.
 - =lua/afternoon/highlights/neogit.lua=: =Neogit= highlight groups.
 - =lua/afternoon/highlights/neotree.lua=: =neo-tree.nvim= highlight groups.
+- =lua/afternoon/highlights/trouble.lua=: =Trouble.nvim= highlight groups.
 - =lua/afternoon/highlights/treesitter.lua=: Tree-sitter highlight links.
 - =lua/afternoon/terminal.lua=: terminal ANSI colors.
 - =queries/java/= and =queries/lua/=: Tree-sitter variable declaration and

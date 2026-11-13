@@ -10,6 +10,7 @@ return {
   TroubleNormalNC = { link = "NormalNC" },
   TroubleFilename = { fg = c.purple },
   TroubleCode = { fg = c.sky_blue },
+  TroublePos = { fg = c.green, bg = c.background },
   TroubleDirectory = { fg = c.orange, bg = c.background },
   TroubleIconDirectory = { fg = c.orange, bg = c.background },
   TroubleIndent = { fg = c.comment, bg = c.background },
