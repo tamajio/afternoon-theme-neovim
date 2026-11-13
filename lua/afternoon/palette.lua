@@ -4,9 +4,9 @@
 -- Upstream: https://github.com/ozanvos/emacs-afternoon-theme
 
 return {
-  background = "#1c1c1c",
-  current_line = "#121212",
-  block_background = "#262626",
+  background = "#181a26",
+  current_line = "#14151E",
+  block_background = "#1F2232",
   selection = "#103050",
   foreground = "#eaeaea",
   comment = "#969896",
