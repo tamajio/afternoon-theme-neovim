@@ -14,6 +14,9 @@ local modules = {
   "neotree",
   "trouble",
   "treesitter",
+  "treesitter.lua",
+  "treesitter.bash",
+  "treesitter.java",
 }
 
 function M.apply(overrides)
