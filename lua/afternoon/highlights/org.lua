@@ -6,7 +6,7 @@
 local c = require("afternoon.config").palette
 
 return {
-  OrgHeadlineLevel1 = { fg = c.sky_blue },
+  OrgHeadlineLevel1 = { fg = c.sky_blue, bg = background },
   OrgHeadlineLevel2 = { fg = c.yellow },
   OrgHeadlineLevel3 = { fg = c.purple },
   OrgHeadlineLevel4 = { fg = c.aqua },
