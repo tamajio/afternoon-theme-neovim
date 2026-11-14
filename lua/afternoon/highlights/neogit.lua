@@ -10,24 +10,24 @@ local attached_buffers = {}
 
 local M = {
   highlights = {
-    NeogitBranch = { fg = c.blue },
-    NeogitBranchHead = { fg = c.purple, bold = true },
-    NeogitRemote = { fg = c.green, bold = true },
-    NeogitTagName = { fg = c.aqua },
-    NeogitObjectId = { fg = c.comment },
-    NeogitGraphAuthor = { fg = c.aqua },
-    NeogitGraphGray = { fg = c.comment },
-    NeogitDiffAdditions = { fg = c.green },
-    NeogitDiffAdd = { fg = "#ffffff", bg = c.deep_forest_green },
-    NeogitDiffAddHighlight = { fg = "#ffffff", bg = c.deep_forest_green },
-    NeogitDiffAddInline = { fg = c.green, reverse = true },
-    NeogitDiffDeletions = { fg = c.orange },
-    NeogitDiffDelete = { fg = "#ffffff", bg = c.oxblood },
+    NeogitBranch              = { fg = c.blue },
+    NeogitBranchHead          = { fg = c.purple,  bold = true },
+    NeogitRemote              = { fg = c.green,   bold = true },
+    NeogitTagName             = { fg = c.aqua },
+    NeogitObjectId            = { fg = c.comment },
+    NeogitGraphAuthor         = { fg = c.aqua },
+    NeogitGraphGray           = { fg = c.comment },
+    NeogitDiffAdditions       = { fg = c.green },
+    NeogitDiffAdd             = { fg = "#ffffff", bg = c.deep_forest_green },
+    NeogitDiffAddHighlight    = { fg = "#ffffff", bg = c.deep_forest_green },
+    NeogitDiffAddInline       = { fg = c.green,   reverse  = true },
+    NeogitDiffDeletions       = { fg = c.orange },
+    NeogitDiffDelete          = { fg = "#ffffff", bg = c.oxblood },
     NeogitDiffDeleteHighlight = { fg = "#ffffff", bg = c.oxblood },
-    NeogitDiffDeleteInline = { fg = c.orange, reverse = true },
-    NeogitSectionHeader = { fg = c.blue, bold = true },
-    NeogitActiveItem = { bg = c.selection },
-    NeogitCommitBracket = { fg = c.orange },
+    NeogitDiffDeleteInline    = { fg = c.orange,  reverse = true },
+    NeogitSectionHeader       = { fg = c.blue,    bold = true },
+    NeogitActiveItem          = { bg = c.selection },
+    NeogitCommitBracket       = { fg = c.orange },
   },
 }
 
@@ -46,10 +46,10 @@ local function highlight_commit_brackets(buf)
       end
 
       api.nvim_buf_set_extmark(buf, namespace, row - 1, first - 1, {
-        end_row = row - 1,
-        end_col = last,
+        end_row  = row - 1,
+        end_col  = last,
         hl_group = "NeogitCommitBracket",
-        hl_mode = "combine",
+        hl_mode  = "combine",
         priority = 200,
       })
       start = last + 1

@@ -6,7 +6,7 @@
 local c = require("afternoon.config").palette
 
 return {
-  ["@function.call.bash"] = { fg = c.blue },
+  ["@function.call.bash"]      = { fg = c.blue },
   ["@variable.parameter.bash"] = { fg = c.foreground },
-  ["@bash.argumentFlag.bash"] = { fg = c.soft_mint },
+  ["@bash.argumentFlag.bash"]  = { fg = c.soft_mint },
 }

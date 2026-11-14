@@ -6,6 +6,6 @@
 local c = require("afternoon.config").palette
 
 return {
-  ["@lsp.type.property.lua"] = { fg = c.foreground },
+  ["@lsp.type.property.lua"]                   = { fg   = c.foreground },
   ["@lsp.typemod.function.defaultLibrary.lua"] = { link = "Builtin" },
 }

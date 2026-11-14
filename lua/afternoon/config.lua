@@ -7,7 +7,7 @@ local defaults = require("afternoon.palette")
 
 local M = {
   options = {
-    palette = {},
+    palette          = {},
     highlight_groups = {},
   },
   palette = vim.deepcopy(defaults),

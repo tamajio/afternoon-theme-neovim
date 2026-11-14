@@ -6,9 +6,9 @@
 local c = require("afternoon.config").palette
 
 return {
-  ["@variable.lua"] = { fg = c.foreground },
+  ["@variable.lua"]            = { fg = c.foreground },
   ["@variable.assignment.lua"] = { fg = c.foreground },
   ["@variable.definition.lua"] = { fg = c.foreground },
-  ["@variable.parameter.lua"] = { fg = c.foreground },
-  ["@property.lua"] = { fg = c.foreground },
+  ["@variable.parameter.lua"]  = { fg = c.foreground },
+  ["@property.lua"]            = { fg = c.foreground },
 }

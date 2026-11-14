@@ -26,7 +26,7 @@ function M.apply(overrides)
   local setups = {}
 
   for _, name in ipairs(modules) do
-    local module = require("afternoon.highlights." .. name)
+    local module     = require("afternoon.highlights." .. name)
     local highlights = module.highlights or module
     if module.setup then
       table.insert(setups, module.setup)

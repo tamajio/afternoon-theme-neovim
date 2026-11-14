@@ -18,7 +18,7 @@ function M.colorscheme(options)
     vim.cmd("syntax reset")
   end
 
-  vim.o.background = "dark"
+  vim.o.background    = "dark"
   vim.o.termguicolors = true
 
   require("afternoon.highlights").apply(config.options.highlight_groups)
