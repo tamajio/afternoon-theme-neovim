@@ -70,9 +70,9 @@ and agenda highlight groups.
 - [X] Core Neovim UI and standard syntax highlight groups.
 - [X] Tree-sitter links for common syntax and markup captures.
 - [X] Java and Lua Tree-sitter captures for variable declarations and assignments.
-- [X] LSP diagnostic severity colors and Java-specific semantic-token mappings.
+- [X] LSP diagnostic severity colors and Java/Lua-specific semantic-token mappings.
 - [ ] Custom Tree-sitter declaration and assignment captures for languages beyond Java and Lua.
-- [ ] Language-specific LSP semantic-token mappings beyond Java.
+- [ ] Language-specific LSP semantic-token mappings beyond Java and Lua.
 
 ** Git, plugins, and terminal
 
@@ -91,6 +91,7 @@ and agenda highlight groups.
 - =lua/afternoon/highlights/base.lua= and =syntax.lua=: editor UI and syntax.
 - =lua/afternoon/highlights/git.lua= and =lsp.lua=: Git and common diagnostics/LSP.
 - =lua/afternoon/highlights/lsp/java.lua=: Java-specific LSP semantic tokens.
+- =lua/afternoon/highlights/lsp/lua.lua=: Lua-specific LSP semantic tokens.
 - =lua/afternoon/highlights/org.lua=: =org.nvim= highlight groups.
 - =lua/afternoon/highlights/neogit.lua=: =Neogit= highlight groups.
 - =lua/afternoon/highlights/neotree.lua=: =neo-tree.nvim= highlight groups.
