@@ -89,7 +89,8 @@ and agenda highlight groups.
 - =colors/afternoon.lua=: Neovim colorscheme entry point.
 - =lua/afternoon/palette.lua=: shared color palette.
 - =lua/afternoon/highlights/base.lua= and =syntax.lua=: editor UI and syntax.
-- =lua/afternoon/highlights/git.lua= and =lsp.lua=: Git and diagnostics/LSP.
+- =lua/afternoon/highlights/git.lua= and =lsp.lua=: Git and common diagnostics/LSP.
+- =lua/afternoon/highlights/lsp/java.lua=: Java-specific LSP semantic tokens.
 - =lua/afternoon/highlights/org.lua=: =org.nvim= highlight groups.
 - =lua/afternoon/highlights/neogit.lua=: =Neogit= highlight groups.
 - =lua/afternoon/highlights/neotree.lua=: =neo-tree.nvim= highlight groups.

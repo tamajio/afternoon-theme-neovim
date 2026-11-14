@@ -9,6 +9,7 @@ local modules = {
   "syntax",
   "git",
   "lsp",
+  "lsp.java",
   "org",
   "neogit",
   "neotree",
