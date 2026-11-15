@@ -17,6 +17,7 @@ return {
   Float          = { fg = c.green },
   Builtin        = { fg = c.light_coral },
   Identifier     = { fg = c.yellow },
+  tomlKey        = { fg = c.foreground },
   Function       = { fg = c.orange },
   Statement      = { fg = c.blue },
   Conditional    = { fg = c.blue },
