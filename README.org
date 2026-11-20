@@ -24,7 +24,9 @@ enable the colorscheme:
 vim.cmd.colorscheme("afternoon")
 #+end_src
 
-For example, with lazy.nvim:
+** lazy.nvim
+
+With [[https://github.com/folke/lazy.nvim][lazy.nvim]]:
 
 #+begin_src lua
 {
@@ -34,6 +36,46 @@ For example, with lazy.nvim:
     vim.cmd.colorscheme("afternoon")
   end,
 }
+#+end_src
+
+** Neovim 0.12 or later
+
+Neovim 0.12 includes the built-in [[https://neovim.io/doc/user/pack.html][vim.pack]]
+plugin manager. Add the plugin to =init.lua= and restart Neovim:
+
+#+begin_src lua
+vim.pack.add({
+  "https://github.com/tamajio/afternoon-theme-neovim",
+})
+
+vim.cmd.colorscheme("afternoon")
+#+end_src
+
+Use =:checkhealth vim.pack= and =:help vim.pack= for setup and update commands.
+
+** vim-plug
+
+With [[https://github.com/junegunn/vim-plug][vim-plug]], add the plugin to your
+=init.vim= and run =:PlugInstall=:
+
+#+begin_src vim
+call plug#begin()
+Plug 'tamajio/afternoon-theme-neovim'
+call plug#end()
+
+colorscheme afternoon
+#+end_src
+
+For Lua-based =init.lua=, the Vimscript block can be written as:
+
+#+begin_src lua
+vim.cmd([[
+call plug#begin()
+Plug 'tamajio/afternoon-theme-neovim'
+call plug#end()
+]])
+
+vim.cmd.colorscheme("afternoon")
 #+end_src
 
 * Requirements
@@ -46,62 +88,90 @@ Java/Lua variable declaration and assignment highlights, install
 
 * Migration status
 
-This checklist tracks highlight coverage implemented by this colorscheme; it
-does not indicate complete feature support in the related plugins.
+This checklist tracks highlight coverage implemented by this colorscheme.
+Plugin support and rendering behavior are provided by the corresponding plugins.
+
+** Core editor and syntax
+
+- [X] Core Neovim UI and standard syntax highlight groups.
+- [X] Floating windows, completion menus, diagnostics, and reference highlights.
+- [X] Git diff and GitSigns highlight groups.
+- [X] Terminal ANSI colors.
+- [X] TOML keys and values.
+- [X] Common Tree-sitter syntax and markup captures.
+- [X] Bash function calls, parameters, and argument flags.
+- [X] Java type captures and custom declaration and assignment captures.
+- [X] Lua custom declaration, assignment, parameter, property, and default-library captures.
+- [X] Generic LSP semantic-token mappings.
+- [X] Java and Lua language-specific LSP semantic-token mappings.
 
 ** Org mode
 
-=org.nvim= provides Org syntax support; this colorscheme supplies the Org mode
-and agenda highlight groups.
-
-- [X] Headline levels, TODO/DONE states, priorities, and tags.
-- [X] Timestamps, planning, links, blocks, code, tables, footnotes, and LaTeX.
-- [X] Document title.
-- [ ] Document info and info-keyword colors.
+- [X] Headline levels, TODO/DONE states, priorities, tags, and comments.
+- [X] Document title, keywords, metadata, drawers, properties, and planning.
+- [X] Timestamps, clocks, links, lists, checkboxes, and statistics.
+- [X] Blocks, inline text styles, tables, footnotes, targets, and LaTeX.
+- [X] Macros, export snippets, archived items, and inline source blocks.
 - [ ] Folded markers and hidden text (=org-ellipsis= / =org-hide=).
 - [ ] Warning faces.
 
 ** Org agenda
 
-- [X] Structure header, dates, completed items, and dimmed items.
+- [X] Structure headers, dates, completed items, and dimmed items.
 - [X] Scheduled items and deadlines.
 - [ ] Column view and column-title colors.
 
-** Languages and editor highlights
+** Plugin integrations
 
-- [X] Core Neovim UI and standard syntax highlight groups.
-- [X] Tree-sitter links for common syntax and markup captures.
-- [X] Java and Lua Tree-sitter captures for variable declarations and assignments.
-- [X] LSP diagnostic severity colors and Java/Lua-specific semantic-token mappings.
-- [ ] Custom Tree-sitter declaration and assignment captures for languages beyond Java and Lua.
-- [ ] Language-specific LSP semantic-token mappings beyond Java and Lua.
+- [X] =Neogit= branches, remotes, tags, graph, diffs, sections, and commit brackets.
+- [X] =neo-tree.nvim= UI, names, Git status, metadata, floating windows, tabs, and separators.
+- [X] =Trouble.nvim= normal buffers, directories, filenames, diagnostic codes, positions, and hierarchy indicators.
 
-** Git, plugins, and terminal
+** Next steps
 
-- [X] Git diff and GitSigns highlights.
-- [X] Neogit highlights based on the original theme's Magit faces, including
-  commit bracket accents.
-- [X] =neo-tree.nvim= file and directory highlights.
-- [X] Neovim diagnostic groups carry the Emacs Flycheck error and warning colors; =Trouble.nvim= reuses them for diagnostic severity markers.
-- [X] =Trouble.nvim= uses the base background, orange folder icons and names, purple filenames, sky-blue diagnostic codes, and gray hierarchy lines.
-- [X] Terminal ANSI colors.
+- [ ] Add headless Neovim smoke tests that load the colorscheme and verify representative highlight groups.
+- [ ] Verify the current highlight coverage in Org mode and Org agenda buffers.
+- [ ] Implement Org folded/hidden text and warning face groups.
+- [ ] Implement Org agenda column view and column-title groups.
+- [ ] Extend custom Tree-sitter declaration and assignment captures to more languages.
+- [ ] Add language-specific LSP semantic-token mappings where Neovim commonly exposes them.
 
 * Code layout
 
 - =colors/afternoon.lua=: Neovim colorscheme entry point.
-- =lua/afternoon/palette.lua=: shared color palette.
-- =lua/afternoon/highlights/base.lua= and =syntax.lua=: editor UI and syntax.
-- =lua/afternoon/highlights/git.lua= and =lsp.lua=: Git and common diagnostics/LSP.
+
+** Core Lua modules
+
+- =lua/afternoon/init.lua=: public setup API and colorscheme initialization.
+- =lua/afternoon/config.lua=: configuration defaults and merged options.
+- =lua/afternoon/palette.lua=: shared palette used across highlight modules.
+- =lua/afternoon/terminal.lua=: terminal ANSI colors.
+
+** Highlight modules
+
+- =lua/afternoon/highlights/init.lua=: loads highlight modules and applies user overrides.
+- =lua/afternoon/highlights/base.lua=: core editor UI and window elements.
+- =lua/afternoon/highlights/syntax.lua=: standard Vim syntax groups.
+- =lua/afternoon/highlights/git.lua=: Git diff and GitSigns groups.
+- =lua/afternoon/highlights/lsp.lua=: diagnostics and generic LSP groups.
+- =lua/afternoon/highlights/treesitter.lua=: common Tree-sitter highlight links.
+- =lua/afternoon/highlights/org.lua=: =org.nvim= document and agenda groups.
+- =lua/afternoon/highlights/neogit.lua=: =Neogit= groups and commit bracket highlighting.
+- =lua/afternoon/highlights/neotree.lua=: =neo-tree.nvim= groups.
+- =lua/afternoon/highlights/trouble.lua=: =Trouble.nvim= groups.
+
+** Language-specific modules
+
 - =lua/afternoon/highlights/lsp/java.lua=: Java-specific LSP semantic tokens.
 - =lua/afternoon/highlights/lsp/lua.lua=: Lua-specific LSP semantic tokens.
-- =lua/afternoon/highlights/org.lua=: =org.nvim= highlight groups.
-- =lua/afternoon/highlights/neogit.lua=: =Neogit= highlight groups.
-- =lua/afternoon/highlights/neotree.lua=: =neo-tree.nvim= highlight groups.
-- =lua/afternoon/highlights/trouble.lua=: =Trouble.nvim= highlight groups.
-- =lua/afternoon/highlights/treesitter.lua=: Tree-sitter highlight links.
-- =lua/afternoon/terminal.lua=: terminal ANSI colors.
-- =queries/java/= and =queries/lua/=: Tree-sitter variable declaration and
-  assignment captures.
+- =lua/afternoon/highlights/treesitter/java.lua=: Java-specific Tree-sitter captures.
+- =lua/afternoon/highlights/treesitter/lua.lua=: Lua-specific Tree-sitter captures.
+- =lua/afternoon/highlights/treesitter/bash.lua=: Bash-specific Tree-sitter captures.
+
+** Query overrides
+
+- =queries/java/highlights.scm=: custom Java declaration and assignment captures.
+- =queries/lua/highlights.scm=: custom Lua declaration and assignment captures.
 
 * Customization
 
