@@ -1,5 +1,7 @@
 #+title: Afternoon Theme for Neovim
 
+[[file:afternoon-theme-title.png]]
+
 * Overview
 
 Afternoon is a dark Neovim colorscheme with a deep charcoal background and
